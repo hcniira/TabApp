@@ -1,77 +1,84 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Welcome to Firebase Hosting</title>
-    <style media="screen">
-      body {
-        font-family: Roboto, Arial, sans-serif;
-        background: #ECEFF1;
-        color: rgba(0,0,0,0.87);
-      }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabApp login</title>
+    <!--<base href="/public/" target="_blank">-->
 
-      a {
-        color: rgb(3,155,229);
-      }
 
-      #message {
-        max-width: 400px;
-        margin: 40px auto;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
-        border-radius: 2px;
-        background: white;
-        padding: 16px 24px;
-      }
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/main.css">
 
-      #message h1 {
-        font-size: 22px;
-        font-weight: 500;
-        text-align: center;
-        margin: 0 0 16px;
-      }
-
-      #message p {
-        font-weight: 300;
-        line-height: 150%;
-      }
-
-      #message ul {
-        list-style: none;
-        margin: 16px 0 0;
-        padding: 0;
-        text-align: center;
-      }
-
-      #message li a {
-        display: inline-block;
-        padding: 8px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 500;
-        background: rgb(3,155,229);
-        color: white;
-        border: 1px solid rgb(3,155,229);
-        border-radius: 3px;
-        font-size: 14px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-      }
-    </style>
   </head>
+
+
   <body>
-    <div id="message">
-      <h1>Welcome to Firebase Hosting</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <ul>
-        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
-      </ul>
-    </div>
+
+    <!--Navbar-->
+    <header class="navbar-inverse" role="banner" id="navbar">
+        <div class="container">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="Home">TabApp</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="hidden" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+
+                <li class="nav-item">
+                  <!--nav-item<button hidden id="signIn" type="button" class="btn btn-link" href="signin">Kirjaudu Google-tilillä</button>-->
+                  <button id="signOut" type="button" class="btn btn-link" align="" href="signout" style="vertical-align: middle"
+                   onclick="signOut();">Kirjaudu ulos</button>
+                </li>
+                <!--<li><a href="#">Link</a></li>-->
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </div>
+    </header>
+
+
+    <div class="container" id="login">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 align="center">Tervetuloa TabAppiin</h1>
+          <button id="signin" type="button" class="btn btn-primary" href="signin" onclick="signIn();"></i>Kirjaudu Google-tilillä</button>
+          <!--<i class="fa fa-google-plus">-->
+        </div>
+
+      </div>
+    </div><!-- /.container-->
+
+    <div class="hidden" class="container" id="welcome" class="hidden">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 align="center" id="welcomeText"</h1>
+          <h4>TabAppiin voit merkitä juomasi kahvit, ja pitää kirjaa niistä!</h4>
+          <button id="AddCoffee" type="button" class="btn btn-success" href="addcoffee" onclick="AddCoffee();"></i>Lisää kahvi</button>
+          <button id="AddTea" type="button" class="btn btn-success" href="addtea" onclick="AddCoffee();"></i>Lisää tee</button>
+          <!--<i class="fa fa-google-plus">-->
+        </div>
+
+      </div>
+    </div><!-- /.container-->
+
+  <!--<div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>-->
+
 
     <!-- Firebase -->
-    <!--
-    ***********************************************************************************************************************
-     *Paste the initialization snippet from: Firebase Console > Overview > Add Firebase to your web app. *
-     ***********************************************************************************************************************-->
-
     <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -83,8 +90,13 @@
         messagingSenderId: "960816511290"
       };
       firebase.initializeApp(config);
-      // Other scripts here
     </script>
+
+    <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="scripts/signinout.js"></script>
+    <script type="text/javascript" src="scripts/adddrinks.js"></script>
 
   </body>
 </html>
